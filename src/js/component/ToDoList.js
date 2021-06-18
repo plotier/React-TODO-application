@@ -4,7 +4,7 @@ export const ToDoList = () => {
 	const [inputValue, setInputValue] = useState("");
 	const [taskList, setTaskList] = useState([]);
 	const listaItems = taskList.map((item, index) => {
-		return <li>{item}</li>;
+		return <li class="list-group-item">{item}</li>;
 	});
 	return (
 		<div>
@@ -16,7 +16,7 @@ export const ToDoList = () => {
 			<button onClick={e => setTaskList([...taskList, inputValue])}>
 				Add
 			</button>
-			<ul>{listaItems}</ul>
+			<ul class="list-group">{listaItems}</ul>
 		</div>
 	);
 };
