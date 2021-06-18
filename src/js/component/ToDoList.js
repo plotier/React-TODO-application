@@ -4,7 +4,21 @@ export const ToDoList = () => {
 	const [inputValue, setInputValue] = useState("");
 	const [taskList, setTaskList] = useState([]);
 	const listaItems = taskList.map((item, index) => {
-		return <li class="list-group-item">{item}</li>;
+		return (
+			<div key={index}>
+				<li className="Example list-group-item d-flex justify-content-between">
+					{item}
+					<i
+						className="fas fa-times"
+						onClick={() => {
+							let holder = taskList.filter(
+								(task, i) => i != index
+							);
+							setTaskList(holder);
+						}}></i>
+				</li>
+			</div>
+		);
 	});
 	return (
 		<div>
@@ -16,7 +30,7 @@ export const ToDoList = () => {
 			<button onClick={e => setTaskList([...taskList, inputValue])}>
 				Add
 			</button>
-			<ul class="list-group">{listaItems}</ul>
+			<ul className="list-group">{listaItems}</ul>
 		</div>
 	);
 };
